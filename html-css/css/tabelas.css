@@ -1,0 +1,47 @@
+table {
+    border: 1px solid;
+    background: #ffffff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table tr {
+    border: 1px solid;
+}
+
+table tr:hover {
+    background-color: rgba(119, 136, 56, 1.0);
+}
+
+table th {
+    padding: 1rem;
+    font-size: 1.8rem;
+    text-align: center;
+    background-color: rgb(67, 57, 214);
+}
+
+table td {
+    padding: 1rem;
+    font-size: 1.6rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table tr td:first-child {
+    text-align: left;
+    font-weight: bold;
+    width: auto;
+    border: 1px solid;
+}
+
+.table-container {
+    padding: 2rem 1rem;
+}
+
+.table-container tfoot {
+    background: #EEEEEE;
+}
+
+.table-container tfoot td {
+    font-weight: bold;
+}

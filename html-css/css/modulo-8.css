@@ -1,0 +1,160 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: purple;
+}
+
+html {
+    max-height: auto;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 120px;
+    border-bottom-style: solid;
+    border-width: 7px;
+}
+
+.item1 {
+    width: 16%;
+    height: 100%;
+    font-size: 40px;
+    padding-left: 38px;
+    padding-top: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: purple;
+}
+
+.item2 {
+    width: 16%;
+    height: 100%;
+    font-size: 40px;
+    padding-left: 38px;
+    padding-top: 50px;
+}
+
+.logo {
+    width: 37%;
+    height: 100%;
+    text-align: center;
+    font-size: 100px;
+    padding-top: 19px;
+    color: rgb(44, 4, 44);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.item3 {
+    width: 16%;
+    height: 100%;
+    font-size: 40px;
+    padding-left: 38px;
+    padding-top: 50px;
+}
+
+.item4 {
+    width: 16%;
+    height: 100%;
+    font-size: 40px;
+    padding-left: 38px;
+    padding-top: 50px;
+}
+
+.box-image {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+}
+
+.row {
+    padding: 20px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.column h1 {
+    text-align: center;
+    border-bottom-style: solid;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: blueviolet;
+    height: 90%;
+    max-height: auto;
+}
+
+.button {
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 15px;
+    border-radius: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: rgb(39, 14, 63);
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.text {
+    text-align: center;
+    height: auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.equipe {
+    padding-left: 1%;
+    text-align: center;
+}
+
+.menu-cafe {
+    text-align: center;
+}
+
+.menu-pratos {
+    text-align: center;
+}
+
+.reserve {
+    width: auto;
+    height: auto;
+    padding: 30px 30px;
+    background-color: aliceblue;
+    text-align: center;
+}
+
+.cognito {
+    padding: 0px 20px;
+}
+
+@media (max-width: 988px) {
+    .container {
+        display: grid;
+        height: auto;
+        background-image: none;
+    }
+    .box-image {
+        display: none;
+    }
+    .column {
+        width: 100%;
+    }
+    .logo {
+        display: none;
+    }
+    .text {
+        text-align: center;
+    }
+}
