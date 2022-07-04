@@ -6,25 +6,33 @@ const uglify = require('gulp-uglify')
 const image = require('gulp-image')
 const stripJs = require('gulp-strip-comments')
 const stripCss = require('gulp-strip-css-comments')
+const htmlmin = required('gulp-htmlmin')
+const babel = required('gulp-babel')
+const browserSync = require('browser-sync')
+const reload = browserSync.reload
 
 function tarefasCSS(cb) {
 
-    return gulp.src([
+    gulp.src([
             './node_modules/bootstrap/dist/css/bootstrap.css',
             './node_modules/@fortawesome/fontawesome-free/css/fontawesome.css',
             './vendor/owl/css/owl.css',
             './vendor/jquery-ui/jquery-ui.css',
             './src/css/style.css'
         ])
-        .pipe(stripCss())                   // remove comentários
-        .pipe(concat('styles.css'))         // mescla arquivos
-        .pipe(cssmin())                     // minifica css
-        .pipe(rename({ suffix: '.min'}))    // styles.min.css
-        .pipe(gulp.dest('./dist/css'))      // cria arquivo em novo diretório
+        .pipe(babel({
+            comments: false,
+            presets: ['@babel/env']
+        }))
+        .pipe(stripCss()) // remove comentários
+        .pipe(concat('styles.css')) // mescla arquivos
+        .pipe(cssmin()) // minifica css
+        .pipe(rename({ suffix: '.min' })) // styles.min.css
+        .pipe(gulp.dest('./dist/css')) // cria arquivo em novo diretório
 
 }
 
-function tarefasJS(){
+function tarefasJS() {
 
     return gulp.src([
             './node_modules/jquery/dist/jquery.js',
@@ -34,16 +42,16 @@ function tarefasJS(){
             './vendor/jquery-ui/jquery-ui.js',
             './src/js/custom.js'
         ])
-        .pipe(stripJs())                    // remove comentários
-        .pipe(concat('scripts.js'))         // mescla arquivos
-        .pipe(uglify())                     // minifica js
-        .pipe(rename({ suffix: '.min'}))    // scripts.min.js
-        .pipe(gulp.dest('./dist/js'))       // cria arquivo em novo diretório
+        .pipe(stripJs()) // remove comentários
+        .pipe(concat('scripts.js')) // mescla arquivos
+        .pipe(uglify()) // minifica js
+        .pipe(rename({ suffix: '.min' })) // scripts.min.js
+        .pipe(gulp.dest('./dist/js')) // cria arquivo em novo diretório
 }
 
 
-function tarefasImagem(){
-    
+function tarefasImagem() {
+
     return gulp.src('./src/images/*')
         .pipe(image({
             pngquant: true,
@@ -58,6 +66,16 @@ function tarefasImagem(){
         }))
         .pipe(gulp.dest('./dist/images'))
 }
+
+gulp.task('serve', function() {
+
+    browserSync.init({
+        server: {
+            baseDir: "./src"
+        }
+    })
+
+})
 
 exports.styles = tarefasCSS
 exports.scripts = tarefasJS
