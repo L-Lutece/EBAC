@@ -1,4 +1,3 @@
-
 const form = document.querySelector('#form');
 const nome = document.getElementById('nome');
 const cpf = document.getElementById('cpf');
@@ -14,14 +13,17 @@ const notNull = document.getElementsByClassName('not-null');
 function isEmpty(elem){
     return elem.value.length < 1 ? `O campo <strong>${elem.name}</strong> não pode ser vazio.` : ''; 
 }
-
 function validaEmail(elem){
     return elem.value.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) ? '' : `Digite um <strong>e-mail</strong> válido`;
 }
-
 function validaCEP(elem){
     if(!elem.value.match(/^[0-9]{8}/)) 
         return `Digite um CEP válido.`;
+    else return '';
+}
+function validaCPF(elem){
+    if(!elem.value.match(/^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$/))
+        return `Digite um CPF válido`;
     else return '';
 }
 
@@ -34,7 +36,7 @@ function updateAdress(data) {
         mensagem.innerHTML = '';
     } else {
         mensagem.innerHTML = `CEP não encontrado`;
-    }
+    };
 }
 
 form.addEventListener('submit', function(event){
@@ -51,6 +53,9 @@ form.addEventListener('submit', function(event){
 
     const isEmail = validaEmail(email);
     if(isEmail) msg.push(isEmail);
+
+    const isCPF = validaCPF(cpf);
+    if(isCPF) msg.push(isCPF);
 
     const isCEP = validaCEP(cep);
     if(isCEP.length > 0) {
