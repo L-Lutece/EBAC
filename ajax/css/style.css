@@ -9,6 +9,7 @@
 
 body {
     font-size: 16px;
+    background-color: rgb(140, 140, 140);
 }
 
 .container {
@@ -51,7 +52,7 @@ input[type="text"] {
 }
 
 .button {
-    background-color: darkblue;
+    background-color: rgb(0, 0, 0);
     border: 0;
     border-radius: 5px;
     color: #fff;
@@ -60,12 +61,12 @@ input[type="text"] {
     cursor: pointer;
     margin: 1rem 0 2rem;
     padding: 1rem 2rem;
-    width: fit-content;
 
 }
 
 .button:hover {
     opacity: .75;
+    background-color: red;
 }
 
 .posts-item {
